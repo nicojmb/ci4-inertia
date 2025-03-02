@@ -41,12 +41,9 @@ class Factory
      */
     public function share($key, $value = null): void
     {
-        if (is_array($key))
-        {
+        if (is_array($key)) {
             $this->sharedProps = array_merge($this->sharedProps, $key);
-        }
-        else
-        {
+        } else {
             array_set($this->sharedProps, $key, $value);
         }
     }
@@ -59,13 +56,11 @@ class Factory
     {
         $sharedProps = $this->sharedProps;
 
-        array_walk_recursive($sharedProps, static function (&$sharedProp)
-        {
+        array_walk_recursive($sharedProps, static function (&$sharedProp) {
             $sharedProp = closure_call($sharedProp);
         });
 
-        if ($key)
-        {
+        if ($key) {
             return array_get($sharedProps, $key);
         }
 
@@ -135,13 +130,11 @@ class Factory
 
     public function location($url)
     {
-        if ($url instanceof Request)
-        {
+        if ($url instanceof Request) {
             $url = $url->getUri();
         }
 
-        if (Services::request()->hasHeader('X-Inertia'))
-        {
+        if (Services::request()->hasHeader('X-Inertia')) {
             Services::session()->set('_ci_previous_url', $url);
 
             return $this->redirectResponse()->setHeader('X-Inertia-Location', $url)
@@ -150,7 +143,6 @@ class Factory
 
         return $this->redirect($url);
     }
-
 
     /**
      *
