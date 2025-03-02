@@ -4,16 +4,6 @@
 [![Tests](https://img.shields.io/github/actions/workflow/status/nicojmb/ci4-inertia/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/nicojmb/ci4-inertia/actions/workflows/run-tests.yml)
 [![Total Downloads](https://img.shields.io/packagist/dt/nicojmb/ci4-inertia.svg?style=flat-square)](https://packagist.org/packages/nicojmb/ci4-inertia)
 
-This is where your description should go. Try and limit it to a paragraph or two. Consider adding a small example.
-
-## Support us
-
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/ci4-inertia.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/ci4-inertia)
-
-We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
-
-We highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using. You'll find our address on [our contact page](https://spatie.be/about-us). We publish all received postcards on [our virtual postcard wall](https://spatie.be/open-source/postcards).
-
 ## Installation
 
 You can install the package via composer:
@@ -22,18 +12,21 @@ You can install the package via composer:
 composer require nicojmb/ci4-inertia
 ```
 
-## Usage
-
-```php
-$skeleton = new Nicojmb\Ci4Inertia();
-echo $skeleton->echoPhrase('Hello, Nicojmb!');
-```
-
 ## Testing
 
 ```bash
 composer test
 ```
+
+## Roadmap
+
+### Tests
+
+-   Controller test
+-   Helper test. `inertia()` helper.
+-   Inertia headers test. An Inertia request should return an Inertia response (JSON response).
+-   Shared data test. It should be accesses in any response.
+-   Lazy props test.
 
 ## Changelog
 
@@ -49,8 +42,9 @@ Please review [our security policy](../../security/policy) on how to report secu
 
 ## Credits
 
-- [Nicolás Javier Martinez](https://github.com/nicojmb)
-- [All Contributors](../../contributors)
+-   [Nicolás Javier Martinez](https://github.com/nicojmb)
+-   [Amir Rami](https://github.com/amirami)
+-   [All Contributors](../../contributors)
 
 ## License
 
