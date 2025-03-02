@@ -18,19 +18,15 @@ class Assets
 
     private function _hash($file): string
     {
-        try
-        {
+        try {
             $path = self::_path($file);
 
-            if (file_exists($path))
-            {
+            if (file_exists($path)) {
                 return $path . '?v=' . md5_file($path);
             }
 
             throw new \Exception('FILE_NOT_FOUND (' . $file . ')');
-        }
-        catch (\Throwable $th)
-        {
+        } catch (\Throwable $th) {
             return $file . '?error=' . $th->getMessage();
         }
     }
