@@ -16,18 +16,14 @@ class Assets
 
     private function _hash($file): string
     {
-        try
-        {
+        try {
 
-            if (file_exists(FCPATH . $file))
-            {
+            if (file_exists(FCPATH . $file)) {
                 return $file . '?v=' . md5_file(FCPATH . $file);
             }
 
             throw new \Exception('FILE_NOT_FOUND');
-        }
-        catch (\Throwable $th)
-        {
+        } catch (\Throwable $th) {
             return $file . '?error=' . $th->getMessage();
         }
     }
