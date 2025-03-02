@@ -4,8 +4,6 @@ namespace Inertia;
 
 class Assets
 {
-    private $assets = '/assets/';
-
     public function css($name = 'app.css'): string
     {
         return self::_hash($name);
@@ -18,21 +16,19 @@ class Assets
 
     private function _hash($file): string
     {
-        try {
-            $path = self::_path($file);
+        try
+        {
 
-            if (file_exists(FCPATH . $path)) {
-                return $path . '?v=' . md5_file(FCPATH . $path);
+            if (file_exists(FCPATH . $file))
+            {
+                return $file . '?v=' . md5_file(FCPATH . $file);
             }
 
-            throw new \Exception('FILE_NOT_FOUND (' . $file . ')');
-        } catch (\Throwable $th) {
+            throw new \Exception('FILE_NOT_FOUND');
+        }
+        catch (\Throwable $th)
+        {
             return $file . '?error=' . $th->getMessage();
         }
-    }
-
-    private function _path($file): string
-    {
-        return $this->assets . $file;
     }
 }
