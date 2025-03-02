@@ -2,7 +2,6 @@
 
 namespace Inertia;
 
-use CodeIgniter\Config\View;
 use CodeIgniter\HTTP\IncomingRequest;
 use CodeIgniter\HTTP\Response as HttpResponse;
 
@@ -63,7 +62,7 @@ class Response
         $page = [
             'component' => $this->component,
             'props' => $props,
-            'url' => $this->request()->detectPath() !== '/' ?  '/'. $this->request()->detectPath() : '/',
+            'url' => $this->request()->detectPath() !== '/' ? '/'. $this->request()->detectPath() : '/',
             'version' => $this->version,
         ];
 
