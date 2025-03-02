@@ -42,8 +42,8 @@ Please review [our security policy](../../security/policy) on how to report secu
 
 ## Credits
 
--   [Nicolás Javier Martinez](https://github.com/nicojmb)
 -   [Amir Rami](https://github.com/amirami)
+-   [Nicolás Javier Martinez](https://github.com/nicojmb)
 -   [All Contributors](../../contributors)
 
 ## License
