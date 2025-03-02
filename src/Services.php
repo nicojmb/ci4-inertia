@@ -12,6 +12,6 @@ class Services extends BaseServices
             return static::getSharedInstance('inertia');
         }
 
-        return new Factory;
+        return new Factory();
     }
 }

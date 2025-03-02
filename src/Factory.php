@@ -122,6 +122,6 @@ class Factory
 
     public function location($url)
     {
-//        return BaseResponse::make('', 409, ['X-Inertia-Location' => $url]);
+        //        return BaseResponse::make('', 409, ['X-Inertia-Location' => $url]);
     }
 }
