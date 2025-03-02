@@ -3,6 +3,8 @@
 namespace Inertia;
 
 use CodeIgniter\HTTP\RedirectResponse;
+use CodeIgniter\HTTP\Request;
+use Inertia\Config\Services;
 
 class Factory
 {
@@ -52,11 +54,17 @@ class Factory
      */
     public function getShared($key = null): array
     {
+        $sharedProps = $this->sharedProps;
+
+        array_walk_recursive($sharedProps, static function (&$sharedProp) {
+            $sharedProp = closure_call($sharedProp);
+        });
+
         if ($key) {
-            return array_get($this->sharedProps, $key);
+            return array_get($sharedProps, $key);
         }
 
-        return $this->sharedProps;
+        return $sharedProps;
     }
 
     /**
@@ -100,7 +108,7 @@ class Factory
      */
     public function app($page): string
     {
-        return '<div id="app" data-page="' . htmlentities(json_encode($page)) . '"></div>';
+        return Directive::inertia($page);
     }
 
     /**
@@ -122,6 +130,17 @@ class Factory
 
     public function location($url)
     {
-        //        return BaseResponse::make('', 409, ['X-Inertia-Location' => $url]);
+        if ($url instanceof Request) {
+            $url = $url->getUri();
+        }
+
+        if (Services::request()->hasHeader('X-Inertia')) {
+            Services::session()->set('_ci_previous_url', $url);
+
+            return $this->redirectResponse()->setHeader('X-Inertia-Location', $url)
+                ->setStatusCode(409);
+        }
+
+        return $this->redirect($url);
     }
 }
