@@ -20,7 +20,7 @@ class Assets
     {
         try
         {
-            $path = $this->assets . $file;
+            $path = self::_path($file);
 
             if (file_exists($path))
             {
