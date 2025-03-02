@@ -12,7 +12,7 @@ class Services extends BaseService
             return static::getSharedInstance('inertia');
         }
 
-        return new \Inertia\Factory;
+        return new \Inertia\Factory();
     }
 
     public static function httpGateway($getShared = true)
@@ -21,6 +21,6 @@ class Services extends BaseService
             return static::getSharedInstance('httpGateway');
         }
 
-        return new \Inertia\Ssr\HttpGateway;
+        return new \Inertia\Ssr\HttpGateway();
     }
 }
