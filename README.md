@@ -1,6 +1,7 @@
 # Inertia server-side adapter for CodeIgniter 4
 
-This code is updated with latest InertiaJS and PHP 8.+ Support
+This code is updated with latest InertiaJS and PHP 8.+ Support.
+T
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/nicojmb/ci4-inertia.svg?style=flat-square)](https://packagist.org/packages/nicojmb/ci4-inertia)
 [![Tests](https://img.shields.io/github/actions/workflow/status/nicojmb/ci4-inertia/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/nicojmb/ci4-inertia/actions/workflows/run-tests.yml)
